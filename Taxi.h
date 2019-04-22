@@ -16,7 +16,7 @@ private:
 public:
 	void initialize(double fuelM, double consump = 0.0, double price = 0.0);
 	void bookTrip(char t, double distance = 0.0);
-	void fillUp(double fPrice = rand() % 130 + 165);
+	void fillUp(double fPrice = std::rand() % 130 + 165);
 	std::string toString();
 
 	Taxi();

@@ -3,16 +3,15 @@
 #include <cstdlib>									// rand() fkt
 
 void Taxi::initialize(double fuelM, double consump, double price) {
-	Taxi init;
-	init.m_consumpKM = consump/100;
-	init.m_costKM = price;
-	init.m_fuelMAX = fuelM;
-	init.m_mileageDAY = 0.0;
-	init.m_fuelACT = m_fuelMAX;
-	init.m_balance = 0.0;
+	m_consumpKM = consump/100;
+	m_costKM = price;
+	m_fuelMAX = fuelM;
+	m_mileageDAY = 0.0;
+	m_fuelACT = m_fuelMAX;
+	m_balance = 0.0;
 }
 void Taxi::bookTrip(char t, double distance) {
-	double fuelR = rand() % 130 + 165;
+	double fuelR = std::rand() % 130 + 165;
 
 	if (m_fuelACT >= (m_consumpKM*distance))
 	{
@@ -23,7 +22,7 @@ void Taxi::bookTrip(char t, double distance) {
 		std::cout << "Tankfuellung nicht ausreichend!" << std::endl;
 	}
 	if (t == 'y') {
-		m_balance += (distance * m_costKM);
+		m_balance += ((distance * m_costKM) - (distance * m_consumpKM * (fuelR / 100)));
 	}
 	else if(t == 'n'){															
 		m_balance -= (distance * m_consumpKM * (fuelR/100));
@@ -33,9 +32,9 @@ void Taxi::bookTrip(char t, double distance) {
 	}
 }
 void Taxi::fillUp(double fPrice ) {
-	if ((m_balance >= ((fPrice/100)*(m_fuelMAX - m_fuelACT))) >= 0) {
-		m_fuelACT = m_fuelMAX;
+	if ((m_balance >= ((fPrice/100)*(m_fuelMAX - m_fuelACT)))) {
 		m_balance -= (fPrice/100) * (m_fuelMAX - m_fuelACT);
+		m_fuelACT = m_fuelMAX;
 	}
 	else {
 		std::cout << "Unzureichende Finanzmittel!" << std::endl;
