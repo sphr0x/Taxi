@@ -4,10 +4,8 @@
 class UI											// 2 a)
 {
 public:
-	void printTaxi();
 	Taxi chooseTaxi();
 	void printMenu();
-
 	void getAll(Taxi getValue);
 	void printDay(Taxi Print);
 

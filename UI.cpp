@@ -6,27 +6,26 @@ void UI::printMenu() {
 	std::cout << "2 : Fahrt ohne Fahrgast verbuchen\n" << "3 : Tanken\n";
 	std::cout << "4 : Taxistatus ausgeben\n" << "5 : Beenden"<< std::endl;
 }
-
-void UI::printTaxi() {
-	std::cout << "Bitte Taxi waehlen: ( 1 oder 2 )" << std::endl;
-}
-
 Taxi UI::chooseTaxi() {
 	Taxi getTaxi;
+	const Taxi &rT = getTaxi;
 	int choose;
 
+	std::cout << "Bitte Taxi waehlen: ( 1 oder 2 )" << std::endl;
 	while (1) {
 		std::cin >> choose;
 		if (choose == 1){
-			getTaxi.initialize(75, 7.2, 0.7);
+			// getTaxi.initialize(75, 7.2, 0.7);
+			getTaxi = Taxi(7.2, 0.7, 75);										// 4 a) | explicit
 			break;
 		}
 		else if (choose == 2){
-			getTaxi.initialize(90, 12.5, 0.95);
+			// getTaxi.initialize(90, 12.5, 0.95);
+			getTaxi = Taxi(rT);										// 4 a) | explicit
 			break;
 		}
 		else{
-			std::cout << "Error: Bitte 1 oder 2 waehlen!" << std::endl;
+			std::cout << "Fehler: Bitte 1 oder 2 waehlen!" << std::endl;
 		}
 	}
 	return getTaxi;
@@ -34,8 +33,9 @@ Taxi UI::chooseTaxi() {
 
 void UI::getAll(Taxi getValue) {
 	int choose;
+	UI getString;
 
-	while (1) {											// hier fehler - kein fkt aufruf bzw bearbeitung
+	while (1) {											
 		std::cin >> choose;
 		switch (choose) {
 		case 1:
@@ -48,22 +48,16 @@ void UI::getAll(Taxi getValue) {
 			getValue.fillUp();
 			break;
 		case 4:
-			getValue.toString();
+			getString.printDay(getValue);
 			break;
 		case 5:
-			break;
+			std::cout << "Beende Programm!" << std::endl;
+			return;
 		default:
-			std::cout << "Bitte 1-5 waehlen!" << std::endl;
+			std::cout << "Fehler: Bitte 1-5 waehlen!" << std::endl;
 			break;
 		}
 	}
-
-
-	/*
-	getValue.initialize();
-	getValue.bookTrip();
-	getValue.fillUp();
-	*/
 };
 
 void UI::printDay(Taxi Print) {
