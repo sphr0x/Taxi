@@ -7,8 +7,8 @@ void UI::printMenu() {
 	std::cout << "4 : Taxistatus ausgeben\n" << "5 : Beenden"<< std::endl;
 }
 Taxi UI::chooseTaxi() {
-	Taxi getTaxi = Taxi();
-	Taxi getTaxi2 = Taxi(getTaxi);
+	Taxi getTaxi = Taxi(75, 7.2, 0.7);
+	Taxi getTaxi2 = Taxi(90, 12.5, 0.95);
 	int choose;
 
 	std::cout << "Bitte Taxi waehlen: ( 1 oder 2 )" << std::endl;

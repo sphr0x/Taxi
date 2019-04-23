@@ -12,7 +12,7 @@ int main()
 	int distA = 10;
 	int distB = 20;
 	*/
-	Taxi car = Taxi();
+	Taxi car = Taxi(75, 7.2, 0.7);
 	Taxi &rC = car;
 	UI get;
 	/*
