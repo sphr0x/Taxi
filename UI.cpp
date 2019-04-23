@@ -16,7 +16,7 @@ Taxi UI::chooseTaxi() {
 		std::cin >> choose;
 		if (choose == 1){
 			// getTaxi.initialize(75, 7.2, 0.7);
-			getTaxi = Taxi(7.2, 0.7, 75);										// 4 a) | explicit
+			getTaxi = Taxi();										// 4 a) | explicit
 			break;
 		}
 		else if (choose == 2){
