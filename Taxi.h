@@ -18,9 +18,8 @@ public:
 	void fillUp(double fPrice = std::rand() % 35 + 130);
 	std::string toString();
 
-	Taxi(double fuelMax, double consump, double price);							// 4 a+b)
+	Taxi();							// 4 a+b)
 	Taxi(const Taxi &car);														// 4 b)
-	Taxi();
 	~Taxi();
 };
 

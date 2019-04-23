@@ -48,15 +48,12 @@ std::string Taxi::toString() {
 	return "Tageskilometerstand: " + std::to_string(m_mileageDAY) + "\nTankinhalt: " + std::to_string(m_fuelACT)
 		+ "\nGeldbilanz: " + std::to_string(m_balance);
 }
-Taxi::Taxi(double consump, double price, double fuelMax)								// 4 a+b)
-	:m_consumpKM(consump), m_costKM(price), m_fuelMAX(fuelMax), m_mileageDAY(0.0), m_fuelACT(m_fuelMAX),
-	m_balance(0.0){
+Taxi::Taxi()								// 4 a+b)
+	: m_mileageDAY(0.0), m_fuelACT(m_fuelMAX), m_balance(0.0){
 }
 Taxi::Taxi(const Taxi &car)																// 4 b) | copy-constructor
 	:m_consumpKM(12.5 / 100), m_costKM(0.95), m_fuelMAX(90), m_mileageDAY(0.0), m_fuelACT(m_fuelMAX),
 	m_balance(0.0) {
-}
-Taxi::Taxi() {
 }
 Taxi::~Taxi(){
 }
