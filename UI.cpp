@@ -7,8 +7,8 @@ void UI::printMenu() {
 	std::cout << "4 : Taxistatus ausgeben\n" << "5 : Beenden"<< std::endl;
 }
 Taxi UI::chooseTaxi() {
-	Taxi getTaxi;
-	const Taxi &rT = getTaxi;
+	Taxi getTaxi = Taxi();
+	Taxi getTaxi2 = Taxi(getTaxi);
 	int choose;
 
 	std::cout << "Bitte Taxi waehlen: ( 1 oder 2 )" << std::endl;
@@ -16,19 +16,16 @@ Taxi UI::chooseTaxi() {
 		std::cin >> choose;
 		if (choose == 1){
 			// getTaxi.initialize(75, 7.2, 0.7);
-			getTaxi = Taxi();										// 4 a) | explicit
-			break;
+			return getTaxi;											// 4 a)
 		}
 		else if (choose == 2){
 			// getTaxi.initialize(90, 12.5, 0.95);
-			getTaxi = Taxi(rT);										// 4 a) | explicit
-			break;
+			return getTaxi2;										// 4 a)
 		}
 		else{
 			std::cout << "Fehler: Bitte 1 oder 2 waehlen!" << std::endl;
 		}
 	}
-	return getTaxi;
 }
 
 void UI::getAll(Taxi getValue) {

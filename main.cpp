@@ -12,7 +12,7 @@ int main()
 	int distA = 10;
 	int distB = 20;
 	*/
-	Taxi car;
+	Taxi car = Taxi();
 	Taxi &rC = car;
 	UI get;
 	/*
@@ -29,7 +29,7 @@ int main()
 	car2.fillUp();
 	std::cout << car2.toString() << std::endl;			// ...2 b)
 	*/			
-	car = get.chooseTaxi();								// 3 a+b)...
+	get.chooseTaxi();								// 3 a+b)...
 	get.printMenu();
 	get.getAll(car);									// ...3 a+b)
 
