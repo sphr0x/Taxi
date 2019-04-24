@@ -4,10 +4,12 @@
 class UI											// 2 a)
 {
 public:
-	Taxi chooseTaxi();
 	void printMenu();
-	void getAll(Taxi getValue);
-	void printDay(Taxi Print);
+	Taxi chooseTaxi();
+	Taxi chooseTaxi2(Taxi &car1, Taxi &car2);
+	void getAll(Taxi &getValue);
+	void getAll2(Taxi &car1, Taxi &car2);
+	void printDay(Taxi &Print)const;				// 4 c) read-only = const
 
 	UI();
 	~UI();

@@ -14,12 +14,13 @@ private:
 	double m_balance;
 public:
 	// void initialize(double fuelM, double consump = 0.0, double price = 0.0);
-	void bookTrip(char t, double distance = 0.0);
+	void bookTrip(bool guest, double distance = 0.0);
 	void fillUp(double fPrice = std::rand() % 35 + 130);
-	std::string toString();
+	std::string toString()const;													// 4 c)
 
-	Taxi(double consump, double price, double fuelMax);							// 4 a+b)
-	Taxi(const Taxi &car);														// 4 b)
+	Taxi(double fuelMax, double consump, double price);
+	Taxi(const Taxi &input);
 	~Taxi();
+	// Taxi chooseTaxi2(Taxi &car1, Taxi &car2);
 };
 
